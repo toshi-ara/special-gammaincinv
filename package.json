@@ -18,7 +18,7 @@
         "test": "node --experimental-vm-modules node_modules/.bin/jest"
     },
     "dependencies": {
-        "@toshiara/special-gammainc": "^1.1.0",
+        "@toshiara/special-gammainc": "^1.1.1",
         "@toshiara/special-gammaln": "^1.0.3"
     },
     "devDependencies": {
