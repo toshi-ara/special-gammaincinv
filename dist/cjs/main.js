@@ -4,13 +4,14 @@ exports.gammaincinv = void 0;
 const special_gammaln_1 = require("@toshiara/special-gammaln");
 const special_gammainc_1 = require("@toshiara/special-gammainc");
 // Returns the inverse of the lower regularized inomplete gamma function
-function gammaincinv(p, a) {
+function gammaincinv(p, a, { upper = false } = {}) {
     let a1 = a - 1;
     const EPS = 1e-16;
     let gln = (0, special_gammaln_1.gammaln)(a);
     let x, err, t, u, pp;
     let afac = 0;
     let lna1 = 0;
+    p = (upper) ? 0.5 - p + 0.5 : p;
     if (p >= 1) {
         return Math.max(100, a + 100 * Math.sqrt(a));
     }

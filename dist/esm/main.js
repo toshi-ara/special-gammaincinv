@@ -1,13 +1,14 @@
 import { gammaln } from "@toshiara/special-gammaln";
 import { gammainc } from "@toshiara/special-gammainc";
 // Returns the inverse of the lower regularized inomplete gamma function
-export function gammaincinv(p, a) {
+export function gammaincinv(p, a, { upper = false } = {}) {
     let a1 = a - 1;
     const EPS = 1e-16;
     let gln = gammaln(a);
     let x, err, t, u, pp;
     let afac = 0;
     let lna1 = 0;
+    p = (upper) ? 0.5 - p + 0.5 : p;
     if (p >= 1) {
         return Math.max(100, a + 100 * Math.sqrt(a));
     }
