@@ -2,8 +2,18 @@ import { gammaln } from "@toshiara/special-gammaln";
 import { gammainc } from "@toshiara/special-gammainc";
 
 
-// Returns the inverse of the lower regularized inomplete gamma function
-export function gammaincinv(p: number, a: number): number {
+type TypeOption = {
+    upper?: boolean
+}
+
+
+// Returns the inverse of the regularized inomplete gamma function
+// option: upper
+//   - false: the inverse of the lower regularized incomplete gamma function
+//   - true:  the inverse of the upper regularized incomplete gamma function
+export function gammaincinv(p: number, a: number, {
+                                upper = false
+                            }: TypeOption = {}): number {
     let a1 = a - 1;
     const EPS = 1e-16;
     let gln = gammaln(a);
@@ -11,6 +21,7 @@ export function gammaincinv(p: number, a: number): number {
     let afac = 0;
     let lna1 = 0;
 
+    p = (upper) ? 0.5 - p + 0.5 : p;
     if (p >= 1) {
         return Math.max(100, a + 100 * Math.sqrt(a));
     }
