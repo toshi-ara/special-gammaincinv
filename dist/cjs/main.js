@@ -3,7 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.gammaincinv = void 0;
 const special_gammaln_1 = require("@toshiara/special-gammaln");
 const special_gammainc_1 = require("@toshiara/special-gammainc");
-// Returns the inverse of the lower regularized inomplete gamma function
+// Returns the inverse of the regularized inomplete gamma function
+// option: upper
+//   - false: the inverse of the lower regularized incomplete gamma function
+//   - true:  the inverse of the upper regularized incomplete gamma function
 function gammaincinv(p, a, { upper = false } = {}) {
     let a1 = a - 1;
     const EPS = 1e-16;
@@ -59,4 +62,3 @@ function gammaincinv(p, a, { upper = false } = {}) {
 }
 exports.gammaincinv = gammaincinv;
 ;
-//# sourceMappingURL=main.js.map
