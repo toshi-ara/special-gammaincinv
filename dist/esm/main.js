@@ -1,6 +1,9 @@
 import { gammaln } from "@toshiara/special-gammaln";
 import { gammainc } from "@toshiara/special-gammainc";
-// Returns the inverse of the lower regularized inomplete gamma function
+// Returns the inverse of the regularized inomplete gamma function
+// option: upper
+//   - false: the inverse of the lower regularized incomplete gamma function
+//   - true:  the inverse of the upper regularized incomplete gamma function
 export function gammaincinv(p, a, { upper = false } = {}) {
     let a1 = a - 1;
     const EPS = 1e-16;
@@ -55,4 +58,3 @@ export function gammaincinv(p, a, { upper = false } = {}) {
     return x;
 }
 ;
-//# sourceMappingURL=main.js.map
